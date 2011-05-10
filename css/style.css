@@ -176,4 +176,14 @@ body.post .content .highlight pre {
   list-style: square;
   padding-left: 1em;
 }
+#foot #avatar {
+  background: #f0f0f0;
+  border-top: 1px solid #ffffff;
+  display: block;
+  outline: 1px solid #999999;
+  padding: 5px;
+}
+#foot img.left { margin-right: 12px; }
+#foot img.right { margin-left: 12px; }
+#foot a { border: none; }
 #disqus_thread a { border: none; }
