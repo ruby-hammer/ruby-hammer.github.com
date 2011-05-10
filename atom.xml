@@ -4,7 +4,7 @@
  <title>Hammer | ruby component based state-full web framework</title>
  <link href="http://your.site.com/atom.xml" rel="self"/>
  <link href="http://your.site.com"/>
- <updated>2011-05-10T21:08:11+02:00</updated>
+ <updated>2011-05-10T21:09:13+02:00</updated>
  <id>http://layouts.studiomohawk.com/</id>
 
  
@@ -330,67 +330,6 @@ BenchTest#test_tenjin_single (531 ms warmup)
 &lt;blockquote&gt;
 &lt;p&gt;But I thing It is save to say, &lt;code&gt;HammerBuilder&lt;/code&gt; is comparable in speed with templates or even better. There is a rich API on top of that, I am happy with the results. &lt;strong&gt;What do you think?&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
- </entry>
- 
- <entry>
-   <title>ActiveRecord: multiple databases</title>
-   <link href="http://your.site.com/2010/04/27/ActiveRecord-multiple-databases/"/>
-   <updated>2010-04-27T00:00:00+02:00</updated>
-   <id>http://your.site.com/2010/04/27/ActiveRecord-multiple-databases</id>
-   <content type="html">&lt;p&gt;I and a colleague of mine needed access to multiple databases with same model a few weeks back. ActiveRecord sets database on class level, so we needed to generate classes for each database dynamically. Here is the solution.&lt;/p&gt;
-&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;Remote&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='no'&gt;ActiveRecord&lt;/span&gt;&lt;span class='o'&gt;::&lt;/span&gt;&lt;span class='no'&gt;Base&lt;/span&gt;
-  &lt;span class='vi'&gt;@abstract_class&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kp'&gt;true&lt;/span&gt;
-
-  &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nc'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='nf'&gt;db_context&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;block&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-    &lt;span class='k'&gt;if&lt;/span&gt; &lt;span class='nb'&gt;block_given?&lt;/span&gt;
-      &lt;span class='n'&gt;block&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;call&lt;/span&gt; &lt;span class='n'&gt;remote_class&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-    &lt;span class='k'&gt;else&lt;/span&gt;
-      &lt;span class='k'&gt;return&lt;/span&gt; &lt;span class='n'&gt;remote_class&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-    &lt;span class='k'&gt;end&lt;/span&gt;
-  &lt;span class='k'&gt;end&lt;/span&gt;
-
-  &lt;span class='kp'&gt;private&lt;/span&gt;
-
-  &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nc'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='nf'&gt;remote_classes&lt;/span&gt;
-    &lt;span class='vi'&gt;@remote_classes&lt;/span&gt; &lt;span class='o'&gt;||=&lt;/span&gt; &lt;span class='p'&gt;{}&lt;/span&gt;
-  &lt;span class='k'&gt;end&lt;/span&gt;
-
-  &lt;span class='c1'&gt;# returns proper class from cache or creates new one&lt;/span&gt;
-  &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nc'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='nf'&gt;remote_class&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-    &lt;span class='n'&gt;remote_classes&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='o'&gt;]&lt;/span&gt; &lt;span class='o'&gt;||=&lt;/span&gt; &lt;span class='k'&gt;begin&lt;/span&gt;
-      &lt;span class='c1'&gt;# creates dynamically descendant Class of self&lt;/span&gt;
-      &lt;span class='n'&gt;remote_class&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='no'&gt;Class&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;new&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;self&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-      &lt;span class='n'&gt;remote_class&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;class_eval&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt; &lt;span class='n'&gt;establish_connection&lt;/span&gt; &lt;span class='n'&gt;db_hash&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;}&lt;/span&gt;
-      &lt;span class='n'&gt;remote_class&lt;/span&gt;
-    &lt;span class='k'&gt;end&lt;/span&gt;
-  &lt;span class='k'&gt;end&lt;/span&gt;
-
-  &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nc'&gt;self&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='nf'&gt;db_hash&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-    &lt;span class='c1'&gt;# returns db hash for connection to db_name&lt;/span&gt;
-  &lt;span class='k'&gt;end&lt;/span&gt;
-
-&lt;span class='k'&gt;end&lt;/span&gt;
-
-&lt;span class='k'&gt;class&lt;/span&gt; &lt;span class='nc'&gt;RemoteSomething&lt;/span&gt; &lt;span class='o'&gt;&amp;lt;&lt;/span&gt; &lt;span class='no'&gt;Remote&lt;/span&gt;
-  &lt;span class='vi'&gt;@abstract_class&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kp'&gt;true&lt;/span&gt;
-  &lt;span class='n'&gt;set_table_name&lt;/span&gt; &lt;span class='s2'&gt;&amp;quot;somethings&amp;quot;&lt;/span&gt;
-
-  &lt;span class='c1'&gt;# actual model definition&lt;/span&gt;
-  &lt;span class='c1'&gt;# validations, callbacks etc for Something&lt;/span&gt;
-&lt;span class='k'&gt;end&lt;/span&gt;
-
-&lt;span class='c1'&gt;## usage ##&lt;/span&gt;
-
-&lt;span class='c1'&gt;# finds all objects in DB db_name&lt;/span&gt;
-&lt;span class='no'&gt;RemoteSomething&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;db_context&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;all&lt;/span&gt;
-&lt;span class='c1'&gt;# or with block&lt;/span&gt;
-&lt;span class='no'&gt;RemoteSomething&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;db_context&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='n'&gt;db_name&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='k'&gt;do&lt;/span&gt; &lt;span class='o'&gt;|&lt;/span&gt;&lt;span class='n'&gt;klass&lt;/span&gt;&lt;span class='o'&gt;|&lt;/span&gt;
-  &lt;span class='n'&gt;klass&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;all&lt;/span&gt;
-  &lt;span class='n'&gt;klass&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;first&lt;/span&gt;
-&lt;span class='k'&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;p&gt;This is probably bad idea if number of remote databases is not limited or they change a lot, but this wasn&amp;#8217;t our case. Source code is at &lt;a href='http://gist.github.com/380518'&gt;http://gist.github.com/380518&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
  
