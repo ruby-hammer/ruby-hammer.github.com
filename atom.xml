@@ -4,7 +4,7 @@
  <title>Hammer | ruby component based state-full web framework</title>
  <link href="http://hammer.pitr.ch/atom.xml" rel="self"/>
  <link href="http://hammer.pitr.ch"/>
- <updated>2011-05-11T11:17:10+02:00</updated>
+ <updated>2011-05-11T12:02:08+02:00</updated>
  <id>http://layouts.studiomohawk.com/</id>
 
  
@@ -358,6 +358,14 @@ BenchTest#test_tenjin_single (531 ms warmup)
 &lt;blockquote&gt;
 &lt;p&gt;But I thing It is save to say, &lt;a href='https://github.com/ruby-hammer/hammer-builder'&gt;&lt;code&gt;HammerBuilder&lt;/code&gt;&lt;/a&gt; is comparable in speed with templates or even better. There is a rich API on top of that, I am happy with the results. &lt;strong&gt;What do you think?&lt;/strong&gt;&lt;/p&gt;
 &lt;/blockquote&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>HammerBuilder Version 0.1 released</title>
+   <link href="http://hammer.pitr.ch/2011/05/11/HammerBuilder-0-1-released/"/>
+   <updated>2011-05-11T00:00:00+02:00</updated>
+   <id>http://hammer.pitr.ch/2011/05/11/HammerBuilder-0-1-released</id>
+   <content type="html">&lt;p&gt;I have just released first version of &lt;a href='https://github.com/ruby-hammer/hammer-builder'&gt;&lt;code&gt;HammerBuilder&lt;/code&gt;&lt;/a&gt; &lt;a href='https://rubygems.org/gems/hammer_builder'&gt;gem&lt;/a&gt;. &lt;a href='/2011/05/11/HammerBuilder-introduction'&gt;Read more&amp;#8230;&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
  
