@@ -13,7 +13,7 @@
 	<script src="/js/modernizr.js"></script>
 	
 		<title>HammerBuilder Introduction | Hammer | ruby component based state-full web framework</title>
-		<meta name="description" content="HammerBuilder is a xhtml5 builder written in Ruby. It does not introduce anything special, you just use Ruby to get your xhtml. HammerBuilder has been...">
+		<meta name="description" content="HammerBuilder is a xhtml5 builder written in Ruby 1.9.2. It does not introduce anything special, you just use Ruby to get your xhtml. HammerBuilder has...">
 	
   <link rel="shortcut icon" href="/img/hammer.png">
   <!-- You may want to stats with your blog if not you should erase this file and remove inculude link from 
@@ -68,7 +68,7 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 				<article class="the_article">
 				<div class="article_inner">
 					<div class="content">
-            <p><code>HammerBuilder</code> is a xhtml5 builder written in Ruby. It does not introduce anything special, you just use Ruby to get your xhtml. <code>HammerBuilder</code> has been written with two main objectives:</p>
+            <p><a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> is a xhtml5 builder written in Ruby 1.9.2. It does not introduce anything special, you just use Ruby to get your xhtml. <a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> has been written with three objectives:</p>
 
 <ul>
 <li>Speed</li>
@@ -89,7 +89,7 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 
 <li><code>Wee::Brush</code> is built-in <code>Wee</code>. I did not want to dig it out and as far as i know it creates instances for each tag. That would be slow - lots of garbage.</li>
 
-<li>Erector was the fastest but it has <code>Widgets</code> which I did not need and they were complicating things not making easier. Also there is no way of extending easily particular tags with a method.</li>
+<li>Erector was the fastest but it has <code>Widgets</code> which I did not need and they were complicating things not making easier. Also there is no way of extending easily particular tags with a method. Erector is great but too heavy for what I needed.</li>
 </ul>
 
 <p>I decided to create my own builder.</p>
@@ -99,7 +99,7 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 <p>There are two builders: <code>HammerBuilder::Standard</code>, <code>HammerBuilder::Formated</code>. First one builds xhtml on one line unindented. Second one formats the output.</p>
 
 <blockquote>
-<p>Originally I did two builders because I thought formated one would be slower, but it is not. Anyway, I left there both - could be useful.</p>
+<p>Originally I did two builders because I thought formated one would be slower, but it is not. Formated one is slower no more then 1%. Anyway, I left there both - could be useful.</p>
 </blockquote>
 
 <p>Personally I thing commented examples are the best, so here you are.</p>
@@ -150,7 +150,21 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 <span class='nt'>&lt;/html&gt;</span>
 </code></pre>
 </div>
-<p>But builder has internal class representation of each tag same as <code>Wee::Brush</code>. When <code>#div</code> is called its instance is returned, following calls are possible.</p>
+<p>But builder does not force its scope, tags can be rendered from outside if needed.</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>b</span> <span class='o'>=</span> <span class='no'>HammerBuilder</span><span class='o'>::</span><span class='no'>Formated</span><span class='o'>.</span><span class='n'>get</span>
+<span class='n'>b</span><span class='o'>.</span><span class='n'>xhtml5!</span>
+<span class='n'>b</span><span class='o'>.</span><span class='n'>html</span> <span class='k'>do</span>
+  <span class='n'>b</span><span class='o'>.</span><span class='n'>head</span> <span class='p'>{</span> <span class='n'>b</span><span class='o'>.</span><span class='n'>title</span> <span class='s1'>&#39;my_page&#39;</span> <span class='p'>}</span>
+  <span class='n'>b</span><span class='o'>.</span><span class='n'>body</span> <span class='k'>do</span>
+    <span class='n'>b</span><span class='o'>.</span><span class='n'>div</span> <span class='ss'>:id</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;content&#39;</span> <span class='k'>do</span>
+      <span class='n'>b</span><span class='o'>.</span><span class='n'>p</span> <span class='s2'>&quot;my page&#39;s content&quot;</span><span class='p'>,</span> <span class='ss'>:class</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;centered&#39;</span>
+    <span class='k'>end</span>
+  <span class='k'>end</span>
+<span class='k'>end</span>
+<span class='n'>b</span><span class='o'>.</span><span class='n'>to_xhtml!</span> <span class='c1'># =&gt; same as example above</span>
+</code></pre>
+</div>
+<p>Builder has internal class representation of each tag same as <code>Wee::Brush</code>. When <code>#div</code> is called its instance is returned, following calls are possible.</p>
 <div class='highlight'><pre><code class='ruby'><span class='n'>div</span><span class='o'>.</span><span class='n'>rclass</span> <span class='c1'># HammerBuilder::Formated::Div</span>
 <span class='c1'># rclass is original ruby method #class </span>
 
@@ -183,7 +197,7 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 </div>
 <h2 id='things_you_should_know_about_hammerbuilder'>Things you should know about HammerBuilder</h2>
 
-<p><code>HammerBuilder</code> is implemented as streaming library. Anything what can be flushed to output is flushed. There are no multiple instances for each tag. Every tag of the same type share a same instance (unique within the instance of a builder).</p>
+<p><a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> is implemented as streaming library. Anything what can be flushed to output is flushed. There are no multiple instances for each tag. Every tag of the same type share a same instance (unique within the instance of a builder).</p>
 <div class='highlight'><pre><code class='ruby'><span class='nb'>puts</span><span class='p'>(</span><span class='no'>HammerBuilder</span><span class='o'>::</span><span class='no'>Standard</span><span class='o'>.</span><span class='n'>get</span><span class='o'>.</span><span class='n'>go_in</span> <span class='k'>do</span>
   <span class='nb'>puts</span> <span class='n'>div</span><span class='o'>.</span><span class='n'>object_id</span>
   <span class='nb'>puts</span> <span class='n'>div</span><span class='o'>.</span><span class='n'>object_id</span>
@@ -204,7 +218,7 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 </div>
 <p>Respectively can be, but output will be <code>&lt;div&gt;a&lt;/div&gt;&lt;div class=&quot;class&quot;&gt;b&lt;/div&gt;</code>, because when <code>#class</code> is called the second div is being builded.</p>
 
-<p><code>HammerBuilder</code> creates what he can prior to rendering and uses heavily meta-programming, because of that instantiating the very first instance of builder triggers some magic staff taking about a one second. Creating new builders of the same class is than much faster and getting builder from a pool is instant.</p>
+<p><a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> creates what he can prior to rendering and uses heavily meta-programming, because of that instantiating the very first instance of builder triggers some magic staff taking about a one second. Creating new builders of the same class is than much faster and getting builder from a pool is instant.</p>
 
 <h2 id='helpers'>Helpers</h2>
 
@@ -324,7 +338,7 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 </div>
 <h2 id='benchmark'>Benchmark</h2>
 
-<p><code>HammerBuilder</code> has been designed to be fast. So is it?</p>
+<p><a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> has been designed to be fast. So is it?</p>
 
 <h3 id='synthetic'>Synthetic</h3>
 <div class='highlight'><pre><code class='text'>                              user     system      total        real
@@ -378,12 +392,12 @@ BenchTest#test_tenjin_single (531 ms warmup)
 </div>
 <h3 id='conclusion'>Conclusion</h3>
 
-<p>Template engines are slightly faster than <code>HammerBuilder</code> when template does not content a lot of inserting or partials. On the other hand when partials are used, <code>HammerBuilder</code> beats template engines. There is no overhead for partials in <code>HammerBuilder</code> compared to using partials in template engine. The difference is significant for <code>Erubis</code>, <code>Tenjin</code> is not so bad i did not find any easy way to use <code>Tenjin</code> in Rails 3 (I did some hacking).</p>
+<p>Template engines are slightly faster than <a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> when template does not content a lot of inserting or partials. On the other hand when partials are used, <a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> beats template engines. There is no overhead for partials in <a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> compared to using partials in template engine. The difference is significant for <code>Erubis</code>, <code>Tenjin</code> is not so bad, but I did not find any easy way to use <code>Tenjin</code> in Rails 3 (I did some hacking).</p>
 
 <p>So which one is better? It dependent on how much your rendering is fragmented or dynamic.</p>
 
 <blockquote>
-<p>But I thing It is save to say, <code>HammerBuilder</code> is comparable in speed with templates or even better. There is a rich API on top of that, I am happy with the results. <strong>What do you think?</strong></p>
+<p>But I thing It is save to say, <a href='https://github.com/ruby-hammer/hammer-builder'><code>HammerBuilder</code></a> is comparable in speed with templates or even better. There is a rich API on top of that, I am happy with the results. <strong>What do you think?</strong></p>
 </blockquote>
           </div>
           <div id="disqus_thread"></div>
@@ -427,8 +441,8 @@ BenchTest#test_tenjin_single (531 ms warmup)
 <h4>Links</h4>
 <ul>
   <li><a href="https://github.com/ruby-hammer">Hammer organization on Github</a></li>
-  <li><a href="https://github.com/ruby-hammer/hammer">Hammer - repository</a></li>
-  <li><a href="http://www.pivotaltracker.com/projects/23639">Hammer - tasks</a></li>
+  <!--  <li><a href="https://github.com/ruby-hammer/hammer">Hammer - repository</a></li>
+    <li><a href="http://www.pivotaltracker.com/projects/23639">Hammer - tasks</a></li>-->
   <!--  <li><a href="https://github.com/ruby-hammer/hammer/issues">Hammer tasks</a></li>-->
   <li><a href="http://rubysoc.org/">Ruby Summer of Code</a></li>
 </ul>
@@ -443,7 +457,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
   <li><a href="http://disqus.com">Disqus</a></li>
 </ul>
 
-<p>Last update: 11.05.2011 08:31</p>
+<p>Last update: 11.05.2011 09:47</p>
 
 <a href='http://www.pledgie.com/campaigns/15276'>
   <img alt='Click here to lend your support to: Hammer and make a donation at www.pledgie.com !'
