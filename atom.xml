@@ -2,17 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Hammer | ruby component based state-full web framework</title>
- <link href="http://your.site.com/atom.xml" rel="self"/>
- <link href="http://your.site.com"/>
- <updated>2011-05-11T09:47:22+02:00</updated>
+ <link href="http://hammer.pitr.ch/atom.xml" rel="self"/>
+ <link href="http://hammer.pitr.ch"/>
+ <updated>2011-05-11T09:57:57+02:00</updated>
  <id>http://layouts.studiomohawk.com/</id>
 
  
  <entry>
    <title>HammerBuilder Introduction</title>
-   <link href="http://your.site.com/2011/05/11/HammerBuilder-introduction/"/>
+   <link href="http://hammer.pitr.ch/2011/05/11/HammerBuilder-introduction/"/>
    <updated>2011-05-11T00:00:00+02:00</updated>
-   <id>http://your.site.com/2011/05/11/HammerBuilder-introduction</id>
+   <id>http://hammer.pitr.ch/2011/05/11/HammerBuilder-introduction</id>
    <content type="html">&lt;p&gt;&lt;a href='https://github.com/ruby-hammer/hammer-builder'&gt;&lt;code&gt;HammerBuilder&lt;/code&gt;&lt;/a&gt; is a xhtml5 builder written in Ruby 1.9.2. It does not introduce anything special, you just use Ruby to get your xhtml. &lt;a href='https://github.com/ruby-hammer/hammer-builder'&gt;&lt;code&gt;HammerBuilder&lt;/code&gt;&lt;/a&gt; has been written with three objectives:&lt;/p&gt;
 
 &lt;ul&gt;
