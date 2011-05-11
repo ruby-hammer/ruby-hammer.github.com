@@ -4,7 +4,7 @@
  <title>Hammer | ruby component based state-full web framework</title>
  <link href="http://hammer.pitr.ch/atom.xml" rel="self"/>
  <link href="http://hammer.pitr.ch"/>
- <updated>2011-05-11T11:12:17+02:00</updated>
+ <updated>2011-05-11T11:17:10+02:00</updated>
  <id>http://layouts.studiomohawk.com/</id>
 
  
@@ -225,7 +225,7 @@
 
   &lt;span class='c1'&gt;# if the class is not needed same can be done this way&lt;/span&gt;
   &lt;span class='k'&gt;def&lt;/span&gt; &lt;span class='nf'&gt;simple_component&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nb'&gt;id&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='n'&gt;attributes&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='kp'&gt;nil&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;block&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;
-    &lt;span class='n'&gt;div&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='nb'&gt;id&lt;/span&gt;&lt;span class='o'&gt;].&lt;/span&gt;&lt;span class='n'&gt;attributes&lt;/span&gt; &lt;span class='n'&gt;attributes&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;block&lt;/span&gt;
+    &lt;span class='n'&gt;div&lt;/span&gt;&lt;span class='o'&gt;[&lt;/span&gt;&lt;span class='nb'&gt;id&lt;/span&gt;&lt;span class='o'&gt;].&lt;/span&gt;&lt;span class='n'&gt;class&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='ss'&gt;:component&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;attributes&lt;/span&gt; &lt;span class='n'&gt;attributes&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='o'&gt;&amp;amp;&lt;/span&gt;&lt;span class='n'&gt;block&lt;/span&gt;
   &lt;span class='k'&gt;end&lt;/span&gt;
 &lt;span class='k'&gt;end&lt;/span&gt;
 
@@ -246,7 +246,7 @@
   &lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;component-1&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;component&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&lt;/span&gt;
     &lt;span class='nt'&gt;&amp;lt;strong&amp;gt;&lt;/span&gt;something&lt;span class='nt'&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
   &lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-  &lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;component-1&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &lt;span class='nt'&gt;&amp;lt;div&lt;/span&gt; &lt;span class='na'&gt;id=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;component-1&amp;quot;&lt;/span&gt; &lt;span class='na'&gt;class=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;component&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;span class='nt'&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
