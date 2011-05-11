@@ -4,7 +4,7 @@
  <title>Hammer | ruby component based state-full web framework</title>
  <link href="http://hammer.pitr.ch/atom.xml" rel="self"/>
  <link href="http://hammer.pitr.ch"/>
- <updated>2011-05-11T09:59:38+02:00</updated>
+ <updated>2011-05-11T11:12:17+02:00</updated>
  <id>http://layouts.studiomohawk.com/</id>
 
  
@@ -119,6 +119,20 @@
 &lt;span class='n'&gt;a&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;onclick&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;js&amp;#39;&lt;/span&gt; &lt;span class='c1'&gt;# &amp;lt;a onclick=&amp;quot;js&amp;quot;&amp;gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+&lt;p&gt;Following call will not be possible, div does not have href attribute therefore there is no method for it.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='n'&gt;div&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;href&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='no'&gt;NoMethodError&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;One last note. If you pass hash of attributes&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='n'&gt;div&lt;/span&gt; &lt;span class='ss'&gt;:id&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='ss'&gt;:class&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;class&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;its equivalent to&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='ruby'&gt;&lt;span class='n'&gt;div&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='n'&gt;attributes&lt;/span&gt; &lt;span class='ss'&gt;:id&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;id&amp;#39;&lt;/span&gt;&lt;span class='p'&gt;,&lt;/span&gt; &lt;span class='ss'&gt;:class&lt;/span&gt; &lt;span class='o'&gt;=&amp;gt;&lt;/span&gt; &lt;span class='s1'&gt;&amp;#39;class&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;code&gt;#attributes&lt;/code&gt; does not go around methods &lt;code&gt;#id&lt;/code&gt;, &lt;code&gt;#class&lt;/code&gt;. &lt;code&gt;#attributes&lt;/code&gt; calls them passing values as arguments.&lt;/p&gt;
+
 &lt;h3 id='tags_content'&gt;Tag&amp;#8217;s content&lt;/h3&gt;
 
 &lt;p&gt;How to get content into double tag:&lt;/p&gt;

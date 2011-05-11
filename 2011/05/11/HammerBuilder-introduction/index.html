@@ -174,6 +174,20 @@ You don't need to edit this file, you can set your ID at _config.yml -->
 <span class='n'>a</span><span class='o'>.</span><span class='n'>onclick</span> <span class='s1'>&#39;js&#39;</span> <span class='c1'># &lt;a onclick=&quot;js&quot;&gt;&lt;/a&gt;</span>
 </code></pre>
 </div>
+<p>Following call will not be possible, div does not have href attribute therefore there is no method for it.</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>div</span><span class='o'>.</span><span class='n'>href</span> <span class='o'>=&gt;</span> <span class='no'>NoMethodError</span>
+</code></pre>
+</div>
+<p>One last note. If you pass hash of attributes</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>div</span> <span class='ss'>:id</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;id&#39;</span><span class='p'>,</span> <span class='ss'>:class</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;class&#39;</span>
+</code></pre>
+</div>
+<p>its equivalent to</p>
+<div class='highlight'><pre><code class='ruby'><span class='n'>div</span><span class='o'>.</span><span class='n'>attributes</span> <span class='ss'>:id</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;id&#39;</span><span class='p'>,</span> <span class='ss'>:class</span> <span class='o'>=&gt;</span> <span class='s1'>&#39;class&#39;</span>
+</code></pre>
+</div>
+<p><code>#attributes</code> does not go around methods <code>#id</code>, <code>#class</code>. <code>#attributes</code> calls them passing values as arguments.</p>
+
 <h3 id='tags_content'>Tag&#8217;s content</h3>
 
 <p>How to get content into double tag:</p>
@@ -457,7 +471,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
   <li><a href="http://disqus.com">Disqus</a></li>
 </ul>
 
-<p>Last update: 11.05.2011 09:59</p>
+<p>Last update: 11.05.2011 11:12</p>
 
 <a href='http://www.pledgie.com/campaigns/15276'>
   <img alt='Click here to lend your support to: Hammer and make a donation at www.pledgie.com !'
