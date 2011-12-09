@@ -82,7 +82,7 @@
             </aside>
             
             <aside class="page_number">
-              1/30
+              1/31
             </aside>
           </footer>
         </div>
@@ -110,7 +110,7 @@
             </aside>
             
             <aside class="page_number">
-              2/30
+              2/31
             </aside>
           </footer>
         </div>
@@ -154,7 +154,7 @@
             </aside>
             
             <aside class="page_number">
-              3/30
+              3/31
             </aside>
           </footer>
         </div>
@@ -210,7 +210,244 @@
             </aside>
             
             <aside class="page_number">
-              4/30
+              4/31
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Chaining</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;border&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">onclick</span><span class="p">(</span><span class="s1">&#39;run();&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">with</span> <span class="k">do</span>
+<span class="lineno">2</span>   <span class="n">text</span> <span class="s1">&#39;hello&#39;</span>
+<span class="lineno">3</span> <span class="k">end</span>
+</pre></div>
+
+<p>prints</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;left border&quot;</span> <span class="na">id=</span><span class="s">&quot;menu&quot;</span> <span class="na">onclick=</span><span class="s">&quot;run();&quot;</span><span class="nt">&gt;</span>hello<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<p>Content block must be last in the chain. No other calls are allowed after block.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span> <span class="k">do</span>
+<span class="lineno">2</span>   <span class="n">text</span> <span class="s1">&#39;content&#39;</span>
+<span class="lineno">3</span> <span class="k">end</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="s1">&#39;an_id&#39;</span><span class="p">)</span> <span class="c1"># won&#39;t work</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              5/31
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Content</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span> <span class="s1">&#39;content&#39;</span>                       <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">content</span> <span class="s1">&#39;content&#39;</span>               <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno">3</span> <span class="n">div</span> <span class="ss">:content</span> <span class="o">=&gt;</span> <span class="s1">&#39;content&#39;</span>           <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno">4</span> <span class="n">div</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>              <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno">5</span> <span class="n">div</span><span class="o">.</span><span class="n">with</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>         <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno">6</span> <span class="n">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="ss">:id</span><span class="p">)</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>  <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
+<span class="lineno">7</span> <span class="n">div</span><span class="o">.</span><span class="n">id</span> <span class="ss">:id</span> <span class="k">do</span>
+<span class="lineno">8</span>   <span class="n">text</span> <span class="s1">&#39;content&#39;</span>
+<span class="lineno">9</span> <span class="k">end</span>                                 <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              6/31
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Attributes</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s1">&#39;menu&#39;</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;left&#39;</span> <span class="c1"># is shortcut for:</span>
+<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">attributes</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s1">&#39;menu&#39;</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;left&#39;</span>
+</pre></div>
+
+<ul>
+<li><code>#attributes</code> calls underlining methods <code>#id</code> and <code>#class</code></li>
+<li>If you extend tag by a method, you can call it through <code>#attributes</code></li>
+</ul>
+<p>Any attribute method you call is immediately appended to output with exception of classes. They are acumulating
+until tag is closed.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="p">(</span><span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span> <span class="c1"># &lt;div class=&#39;left center&#39;&gt;&lt;/div&gt;</span>
+<span class="lineno">2</span> <span class="n">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>                   <span class="c1"># &lt;div id=&quot;1&quot; id=&quot;2&quot;&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p>Udefined attribute can be rendered with.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">html</span><span class="o">.</span><span class="n">attribute</span> <span class="ss">:xmlns</span><span class="p">,</span> <span class="s1">&#39;http://www.w3.org/1999/xhtml&#39;</span>
+<span class="lineno">2</span> <span class="c1"># =&gt; &lt;html xmlns=&quot;http://www.w3.org/1999/xhtml&quot;&gt;&lt;/html&gt;</span>
+</pre></div>
+
+<p>If <code>#attribute</code> finds defined method for desired attribute, the method is called.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">attribute</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;left&#39;</span> <span class="c1"># is equvivalent to:</span>
+<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">class</span> <span class="s1">&#39;left&#39;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/31
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Id, class and object</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">menu!</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">hidden</span> <span class="c1"># =&gt; &lt;div id=&quot;menu&quot; class=&quot;left hidden&quot;&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p>Content can be passed in the usual way:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">menu!</span> <span class="s1">&#39;content&#39;</span>       <span class="c1"># =&gt; &lt;div id=&quot;menu&quot;&gt;content&lt;/div&gt;</span>
+<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">menu!</span> <span class="p">{</span> <span class="nb">p</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span> <span class="c1"># =&gt; &lt;div id=&quot;menu&quot;&gt;&lt;p&gt;content&lt;/p&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p><code>#class</code> accepts an array, values are joined with spaces and <code>false</code>, <code>nil</code> values are ignored</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">,</span> <span class="n">hide?</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;hidden&#39;</span><span class="p">)</span>
+<span class="lineno">2</span> <span class="c1"># =&gt; &lt;div class=&quot;menu big hidden&quot;&gt;&lt;/div&gt;</span>
+<span class="lineno">3</span> <span class="c1"># or &lt;div class=&quot;menu big&quot;&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p><code>#id</code> accepts also an array, values are joined with '_' and <code>false</code>, <code>nil</code> values are ignored</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">,</span> <span class="s1">&#39;big&#39;</span><span class="p">,</span> <span class="n">a_failing_test</span> <span class="o">&amp;&amp;</span> <span class="s1">&#39;useless&#39;</span><span class="p">)</span> <span class="c1"># =&gt; &lt;div id=&quot;menu_big&quot;&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<p>Object (model) can be used to set class and id</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span>
+<span class="lineno">2</span> <span class="n">div</span><span class="p">(</span><span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;model&#39;</span><span class="p">)</span><span class="o">[</span><span class="n">user</span><span class="o">].</span><span class="n">with</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;data&#39;</span> <span class="p">}</span>
+<span class="lineno">3</span> <span class="c1"># =&gt; &lt;div id=&quot;user_1&quot; class=&quot;model user&quot;&gt;data&lt;/div&gt;</span>
+</pre></div>
+
+<p><code>#object</code> which is aliased as <code>#[]</code> looks for <code>.hammer_builder_ref</code> or uses the class name to find the class part.
+As id is used already determined class and <code>#hammer_builder_ref</code>, <code>#id</code>, <code>#object_id</code> which one is found first.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              8/31
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Data attributes, Join</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">data_secret</span><span class="p">(</span><span class="s2">&quot;I won&#39;t tell.&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &lt;div data-secret=&quot;I won&#39;t tell.&quot;&gt;&lt;/div&gt;</span>
+<span class="lineno">2</span> <span class="n">data</span> <span class="ss">:secret</span> <span class="o">=&gt;</span> <span class="s2">&quot;I won&#39;t tell.&quot;</span>  <span class="c1"># =&gt; &lt;div data-secret=&quot;I won&#39;t tell.&quot;&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<h2>Join</h2>
+<p><code>#join</code> enables easy rendering of collections</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">join</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="o">-&gt;</span><span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;, &#39;</span> <span class="p">})</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">b</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">n</span><span class="si">}</span><span class="s2">cm&quot;</span> <span class="p">}</span>
+<span class="lineno">2</span>     <span class="c1"># =&gt; &quot;&lt;b&gt;1cm&lt;/b&gt;, &lt;b&gt;1.2cm&lt;/b&gt;&quot;</span>
+<span class="lineno">3</span> <span class="n">join</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">.</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">b</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">n</span><span class="si">}</span><span class="s2">cm&quot;</span> <span class="p">}</span>
+<span class="lineno">4</span>     <span class="c1"># =&gt; &quot;&lt;b&gt;1cm&lt;/b&gt;, &lt;b&gt;1.2cm&lt;/b&gt;&quot;</span>
+<span class="lineno">5</span> <span class="n">join</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-&gt;</span><span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;missing&#39;</span> <span class="p">}</span><span class="o">]</span><span class="p">,</span> <span class="s1">&#39;, &#39;</span><span class="p">)</span> <span class="p">{</span><span class="o">|</span><span class="n">n</span><span class="o">|</span> <span class="n">b</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">n</span><span class="si">}</span><span class="s2">cm&quot;</span> <span class="p">}</span>
+<span class="lineno">6</span>     <span class="c1"># =&gt; &quot;&lt;b&gt;1cm&lt;/b&gt;, missing&quot;</span>
+</pre></div>
+
+<p>A block in the collection is rendered directly without iterator. This can be useful when menu with some delimiters
+is rendered based on collection of some objects and you need to add one or more menu untypical items.</p></section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              9/31
             </aside>
           </footer>
         </div>
@@ -249,175 +486,7 @@
             </aside>
             
             <aside class="page_number">
-              5/30
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Chaining methods</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="s1">&#39;menu&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;border&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">onclick</span><span class="p">(</span><span class="s1">&#39;run();&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">with</span> <span class="k">do</span>
-<span class="lineno">2</span>   <span class="n">text</span> <span class="s1">&#39;hello&#39;</span>
-<span class="lineno">3</span> <span class="k">end</span>
-</pre></div>
-
-<p>prints</p>
-<div class="highlight"><pre><span class="lineno">1</span> <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;left border&quot;</span> <span class="na">id=</span><span class="s">&quot;menu&quot;</span> <span class="na">onclick=</span><span class="s">&quot;run();&quot;</span><span class="nt">&gt;</span>hello<span class="nt">&lt;/div&gt;</span>
-</pre></div>
-
-<p>Content block must be last in the chain. No other calls are allowed after block.</p>
-<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span> <span class="k">do</span>
-<span class="lineno">2</span>   <span class="n">text</span> <span class="s1">&#39;content&#39;</span>
-<span class="lineno">3</span> <span class="k">end</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="s1">&#39;an_id&#39;</span><span class="p">)</span> <span class="c1"># won&#39;t work</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              6/30
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Tag's content</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span> <span class="s1">&#39;content&#39;</span>                       <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">content</span> <span class="s1">&#39;content&#39;</span>               <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">3</span> <span class="n">div</span> <span class="ss">:content</span> <span class="o">=&gt;</span> <span class="s1">&#39;content&#39;</span>           <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">4</span> <span class="n">div</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>              <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">5</span> <span class="n">div</span><span class="o">.</span><span class="n">with</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>         <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">6</span> <span class="n">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="ss">:id</span><span class="p">)</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>  <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
-<span class="lineno">7</span> <span class="n">div</span><span class="o">.</span><span class="n">id</span> <span class="ss">:id</span> <span class="k">do</span>
-<span class="lineno">8</span>   <span class="n">text</span> <span class="s1">&#39;content&#39;</span>
-<span class="lineno">9</span> <span class="k">end</span>                                 <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              7/30
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Tag's attributes</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s1">&#39;menu&#39;</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;left&#39;</span> <span class="c1"># is shortcut for:</span>
-<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">attributes</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s1">&#39;menu&#39;</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;left&#39;</span>
-</pre></div>
-
-<ul>
-<li><code>#attributes</code> calls underlining methods <code>#id</code> and <code>#class</code></li>
-<li>If you extend tag by a method, you can call it through <code>#attributes</code></li>
-</ul>
-<p>Any attribute method you call is immediately appended to output with exception of classes. They are acumulating
-until tag is closed.</p>
-<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="p">(</span><span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;center&#39;</span><span class="p">)</span> <span class="c1"># &lt;div class=&#39;left center&#39;&gt;&lt;/div&gt;</span>
-<span class="lineno">2</span> <span class="n">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>                   <span class="c1"># &lt;div id=&quot;1&quot; id=&quot;2&quot;&gt;&lt;/div&gt;</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              8/30
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Shortcuts for id and classes</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">menu!</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">hidden</span> <span class="c1"># =&gt; &lt;div id=&quot;menu&quot; class=&quot;left hidden&quot;&gt;&lt;/div&gt;</span>
-</pre></div>
-
-<p>Content can be passed in the usual way:</p>
-<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">menu!</span> <span class="s1">&#39;content&#39;</span>       <span class="c1"># =&gt; &lt;div id=&quot;menu&quot;&gt;content&lt;/div&gt;</span>
-<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">menu!</span> <span class="p">{</span> <span class="nb">p</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span> <span class="c1"># =&gt; &lt;div id=&quot;menu&quot;&gt;&lt;p&gt;content&lt;/p&gt;&lt;/div&gt;</span>
-</pre></div>
-
-<h1>Data attributes</h1>
-<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">data_secret</span><span class="p">(</span><span class="s2">&quot;I won&#39;t tell.&quot;</span><span class="p">)</span> <span class="c1"># =&gt; &lt;div data-secret=&quot;I won&#39;t tell.&quot;&gt;&lt;/div&gt;</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              9/30
+              10/31
             </aside>
           </footer>
         </div>
@@ -469,7 +538,7 @@ until tag is closed.</p>
             </aside>
             
             <aside class="page_number">
-              10/30
+              11/31
             </aside>
           </footer>
         </div>
@@ -500,7 +569,7 @@ set_variables</p></section>
             </aside>
             
             <aside class="page_number">
-              11/30
+              12/31
             </aside>
           </footer>
         </div>
@@ -547,7 +616,7 @@ set_variables</p></section>
             </aside>
             
             <aside class="page_number">
-              12/30
+              13/31
             </aside>
           </footer>
         </div>
@@ -601,7 +670,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              13/30
+              14/31
             </aside>
           </footer>
         </div>
@@ -654,7 +723,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              14/30
+              15/31
             </aside>
           </footer>
         </div>
@@ -709,7 +778,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              15/30
+              16/31
             </aside>
           </footer>
         </div>
@@ -754,7 +823,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              16/30
+              17/31
             </aside>
           </footer>
         </div>
@@ -810,7 +879,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              17/30
+              18/31
             </aside>
           </footer>
         </div>
@@ -860,7 +929,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              18/30
+              19/31
             </aside>
           </footer>
         </div>
@@ -911,7 +980,7 @@ There is a <code>HammerBuilder::Helper</code> and method <code>#render</code> fo
             </aside>
             
             <aside class="page_number">
-              19/30
+              20/31
             </aside>
           </footer>
         </div>
@@ -963,7 +1032,7 @@ There is a <code>HammerBuilder::Helper</code> and method <code>#render</code> fo
             </aside>
             
             <aside class="page_number">
-              20/30
+              21/31
             </aside>
           </footer>
         </div>
@@ -1005,7 +1074,7 @@ tagz                      33.430000   0.000000  33.430000 ( 33.483693)
             </aside>
             
             <aside class="page_number">
-              21/30
+              22/31
             </aside>
           </footer>
         </div>
@@ -1035,7 +1104,7 @@ tagz                      33.430000   0.000000  33.430000 ( 33.483693)
             </aside>
             
             <aside class="page_number">
-              22/30
+              23/31
             </aside>
           </footer>
         </div>
@@ -1085,7 +1154,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              23/30
+              24/31
             </aside>
           </footer>
         </div>
@@ -1115,7 +1184,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              24/30
+              25/31
             </aside>
           </footer>
         </div>
@@ -1163,7 +1232,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              25/30
+              26/31
             </aside>
           </footer>
         </div>
@@ -1196,7 +1265,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              26/30
+              27/31
             </aside>
           </footer>
         </div>
@@ -1231,7 +1300,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              27/30
+              28/31
             </aside>
           </footer>
         </div>
@@ -1270,7 +1339,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              28/30
+              29/31
             </aside>
           </footer>
         </div>
@@ -1298,7 +1367,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              29/30
+              30/31
             </aside>
           </footer>
         </div>
@@ -1313,7 +1382,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             
             
             <section><ul>
-<li>spellcheck</li>
+<li>do some spellcheck :)</li>
 </ul>
 <script type="text/javascript">
   var chart, chart2;
@@ -1394,7 +1463,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              30/30
+              31/31
             </aside>
           </footer>
         </div>
@@ -1433,103 +1502,103 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-5">
-        <th><a href="#slide5">Each tag have its own Class</a></th>
+        <th><a href="#slide5">Chaining</a></th>
         <td><a href="#slide5">5</a></td>
       </tr>
       
       
       <tr id="toc-row-6">
-        <th><a href="#slide6">Chaining methods</a></th>
+        <th><a href="#slide6">Content</a></th>
         <td><a href="#slide6">6</a></td>
       </tr>
       
       
       <tr id="toc-row-7">
-        <th><a href="#slide7">Tag's content</a></th>
+        <th><a href="#slide7">Attributes</a></th>
         <td><a href="#slide7">7</a></td>
       </tr>
       
       
       <tr id="toc-row-8">
-        <th><a href="#slide8">Tag's attributes</a></th>
+        <th><a href="#slide8">Id, class and object</a></th>
         <td><a href="#slide8">8</a></td>
       </tr>
       
       
       <tr id="toc-row-9">
-        <th><a href="#slide9">Shortcuts for id and classes</a></th>
+        <th><a href="#slide9">Data attributes, Join</a></th>
         <td><a href="#slide9">9</a></td>
       </tr>
       
       
       <tr id="toc-row-10">
-        <th><a href="#slide10">Getting a builder</a></th>
+        <th><a href="#slide10">Each tag have its own Class</a></th>
         <td><a href="#slide10">10</a></td>
       </tr>
       
       
       <tr id="toc-row-11">
-        <th><a href="#slide11">Contexts TODO</a></th>
+        <th><a href="#slide11">Getting a builder</a></th>
         <td><a href="#slide11">11</a></td>
       </tr>
       
       
       <tr id="toc-row-12">
-        <th><a href="#slide12">Helpers</a></th>
+        <th><a href="#slide12">Contexts TODO</a></th>
         <td><a href="#slide12">12</a></td>
       </tr>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">Implementation details - Tag's shared instances</a></th>
+        <th><a href="#slide13">Helpers</a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
       
       <tr id="toc-row-14">
-        <th><a href="#slide14">Implementation details - DynamicClasses</a></th>
+        <th><a href="#slide14">Implementation details - Tag's shared instances</a></th>
         <td><a href="#slide14">14</a></td>
       </tr>
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">Implementation details - DynamicClasses 2</a></th>
+        <th><a href="#slide15">Implementation details - DynamicClasses</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
       
       <tr id="toc-row-16">
-        <th><a href="#slide16">Implementation details - DynamicClasses 3</a></th>
+        <th><a href="#slide16">Implementation details - DynamicClasses 2</a></th>
         <td><a href="#slide16">16</a></td>
       </tr>
       
       
       <tr id="toc-row-17">
-        <th><a href="#slide17">Extensibility</a></th>
+        <th><a href="#slide17">Implementation details - DynamicClasses 3</a></th>
         <td><a href="#slide17">17</a></td>
       </tr>
       
       
       <tr id="toc-row-18">
-        <th><a href="#slide18">Extensibility 2</a></th>
+        <th><a href="#slide18">Extensibility</a></th>
         <td><a href="#slide18">18</a></td>
       </tr>
       
       
       <tr id="toc-row-19">
-        <th><a href="#slide19">How to use</a></th>
+        <th><a href="#slide19">Extensibility 2</a></th>
         <td><a href="#slide19">19</a></td>
       </tr>
       
       
       <tr id="toc-row-20">
-        <th><a href="#slide20">How to use 2</a></th>
+        <th><a href="#slide20">How to use</a></th>
         <td><a href="#slide20">20</a></td>
       </tr>
       
       
       <tr id="toc-row-21">
-        <th><a href="#slide21">Benchmark Synthetic</a></th>
+        <th><a href="#slide21">How to use 2</a></th>
         <td><a href="#slide21">21</a></td>
       </tr>
       
@@ -1541,7 +1610,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-23">
-        <th><a href="#slide23">Benchmark Rails 3</a></th>
+        <th><a href="#slide23">Benchmark Synthetic</a></th>
         <td><a href="#slide23">23</a></td>
       </tr>
       
@@ -1553,38 +1622,44 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-25">
-        <th><a href="#slide25">Why is it fast?</a></th>
+        <th><a href="#slide25">Benchmark Rails 3</a></th>
         <td><a href="#slide25">25</a></td>
       </tr>
       
       
       <tr id="toc-row-26">
-        <th><a href="#slide26">Next?</a></th>
+        <th><a href="#slide26">Why is it fast?</a></th>
         <td><a href="#slide26">26</a></td>
       </tr>
       
       
       <tr id="toc-row-27">
-        <th><a href="#slide27">Why use?</a></th>
+        <th><a href="#slide27">Next?</a></th>
         <td><a href="#slide27">27</a></td>
       </tr>
       
       
       <tr id="toc-row-28">
-        <th><a href="#slide28">Links</a></th>
+        <th><a href="#slide28">Why use?</a></th>
         <td><a href="#slide28">28</a></td>
       </tr>
       
       
       <tr id="toc-row-29">
-        <th><a href="#slide29">Thanks for listening / reading.</a></th>
+        <th><a href="#slide29">Links</a></th>
         <td><a href="#slide29">29</a></td>
       </tr>
       
       
       <tr id="toc-row-30">
-        <th><a href="#slide30">TODO</a></th>
+        <th><a href="#slide30">Thanks for listening / reading.</a></th>
         <td><a href="#slide30">30</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-31">
+        <th><a href="#slide31">TODO</a></th>
+        <td><a href="#slide31">31</a></td>
       </tr>
       
       
