@@ -82,7 +82,7 @@
             </aside>
             
             <aside class="page_number">
-              1/31
+              1/32
             </aside>
           </footer>
         </div>
@@ -93,7 +93,7 @@
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Fast Ruby xhtml5 renderer</h1></header>
+            <header><h1>Fast Ruby xhtml5, html5 renderer</h1></header>
             
             
           </div>
@@ -110,7 +110,7 @@
             </aside>
             
             <aside class="page_number">
-              2/31
+              2/32
             </aside>
           </footer>
         </div>
@@ -124,7 +124,7 @@
             <header><h1>Why?</h1></header>
             
             
-            <section><p>I needed xhtml builder for my yet very experimental framework Hammmer. I was looking for theese characteristics:</p>
+            <section><p>I needed html builder for my yet very experimental framework Hammmer. I was looking for theese characteristics:</p>
 <ul>
 <li>Ruby</li>
 <li>Fast</li>
@@ -154,7 +154,7 @@
             </aside>
             
             <aside class="page_number">
-              3/31
+              3/32
             </aside>
           </footer>
         </div>
@@ -169,20 +169,20 @@
             
             
             <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Formatted</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
-<span class="lineno"> 2</span>   <span class="n">xhtml5!</span>
+<span class="lineno"> 2</span>   <span class="n">html5</span>
 <span class="lineno"> 3</span>   <span class="n">html</span> <span class="k">do</span>
 <span class="lineno"> 4</span>     <span class="n">head</span> <span class="p">{</span> <span class="n">title</span> <span class="s1">&#39;my_page&#39;</span> <span class="p">}</span>
 <span class="lineno"> 5</span>     <span class="n">body</span> <span class="k">do</span>
-<span class="lineno"> 6</span>       <span class="n">div</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s1">&#39;content&#39;</span> <span class="k">do</span>
-<span class="lineno"> 7</span>         <span class="nb">p</span> <span class="s2">&quot;my page&#39;s content&quot;</span><span class="p">,</span> <span class="ss">:class</span> <span class="o">=&gt;</span> <span class="s1">&#39;centered&#39;</span>
+<span class="lineno"> 6</span>       <span class="n">div</span><span class="o">.</span><span class="n">content!</span> <span class="k">do</span>
+<span class="lineno"> 7</span>         <span class="nb">p</span><span class="o">.</span><span class="n">centered</span> <span class="s2">&quot;my page&#39;s content&quot;</span>
 <span class="lineno"> 8</span>       <span class="k">end</span>
 <span class="lineno"> 9</span>     <span class="k">end</span>
 <span class="lineno">10</span>   <span class="k">end</span>
-<span class="lineno">11</span> <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml!</span>
+<span class="lineno">11</span> <span class="k">end</span><span class="o">.</span><span class="n">to_html!</span>
 </pre></div>
 
 <p>returns</p>
-<div class="highlight"><pre><span class="lineno"> 1</span> <span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!DOCTYPE html&gt;</span>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="lineno"> 2</span> <span class="nt">&lt;html</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.w3.org/1999/xhtml&quot;</span><span class="nt">&gt;</span>
 <span class="lineno"> 3</span>   <span class="nt">&lt;head&gt;</span>
 <span class="lineno"> 4</span>     <span class="nt">&lt;title&gt;</span>my_page<span class="nt">&lt;/title&gt;</span>
@@ -210,7 +210,7 @@
             </aside>
             
             <aside class="page_number">
-              4/31
+              4/32
             </aside>
           </footer>
         </div>
@@ -254,47 +254,7 @@
             </aside>
             
             <aside class="page_number">
-              5/31
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>Content</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span> <span class="s1">&#39;content&#39;</span>                       <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">2</span> <span class="n">div</span><span class="o">.</span><span class="n">content</span> <span class="s1">&#39;content&#39;</span>               <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">3</span> <span class="n">div</span> <span class="ss">:content</span> <span class="o">=&gt;</span> <span class="s1">&#39;content&#39;</span>           <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">4</span> <span class="n">div</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>              <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">5</span> <span class="n">div</span><span class="o">.</span><span class="n">with</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>         <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
-<span class="lineno">6</span> <span class="n">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="ss">:id</span><span class="p">)</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>  <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
-<span class="lineno">7</span> <span class="n">div</span><span class="o">.</span><span class="n">id</span> <span class="ss">:id</span> <span class="k">do</span>
-<span class="lineno">8</span>   <span class="n">text</span> <span class="s1">&#39;content&#39;</span>
-<span class="lineno">9</span> <span class="k">end</span>                                 <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              6/31
+              5/32
             </aside>
           </footer>
         </div>
@@ -314,7 +274,7 @@
 
 <ul>
 <li><code>#attributes</code> calls underlining methods <code>#id</code> and <code>#class</code></li>
-<li>If you extend tag by a method, you can call it through <code>#attributes</code></li>
+<li>If you extend tag by a method, you can call it through <code>#attributes</code> or <code>#attribute</code></li>
 </ul>
 <p>Any attribute method you call is immediately appended to output with exception of classes. They are acumulating
 until tag is closed.</p>
@@ -347,7 +307,7 @@ until tag is closed.</p>
             </aside>
             
             <aside class="page_number">
-              7/31
+              6/32
             </aside>
           </footer>
         </div>
@@ -358,7 +318,55 @@ until tag is closed.</p>
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h1>Id, class and object</h1></header>
+            <header><h1>Content, Boolean attributes</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="n">div</span> <span class="s1">&#39;content&#39;</span>                       <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno"> 2</span> <span class="n">div</span><span class="o">.</span><span class="n">content</span> <span class="s1">&#39;content&#39;</span>               <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno"> 3</span> <span class="n">div</span> <span class="ss">:content</span> <span class="o">=&gt;</span> <span class="s1">&#39;content&#39;</span>           <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno"> 4</span> <span class="n">div</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>              <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno"> 5</span> <span class="n">div</span><span class="o">.</span><span class="n">with</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>         <span class="c1"># &lt;div&gt;content&lt;/div&gt;</span>
+<span class="lineno"> 6</span> <span class="n">div</span> <span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="ss">:id</span>           <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
+<span class="lineno"> 7</span> <span class="n">div</span><span class="p">(</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="ss">:id</span><span class="p">)</span> <span class="p">{</span> <span class="n">text</span> <span class="s1">&#39;content&#39;</span> <span class="p">}</span>  <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;</span>
+<span class="lineno"> 8</span> <span class="n">div</span><span class="o">.</span><span class="n">id</span> <span class="ss">:id</span> <span class="k">do</span>
+<span class="lineno"> 9</span>   <span class="n">text</span> <span class="s1">&#39;content&#39;</span>
+<span class="lineno">10</span> <span class="k">end</span>                                 <span class="c1"># &lt;div id=&quot;id&quot;&gt;content&lt;/div&gt;---</span>
+</pre></div>
+
+<h2>Boolean attributes</h2>
+<p>Attributes like <code>checked</code> and <code>disabled</code> test value for true, if false they render nothing</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">input</span><span class="o">.</span><span class="n">disabled</span> <span class="n">am_i_disabled?</span>
+<span class="lineno">2</span> <span class="c1"># =&gt; &lt;input disabled=&quot;disabled&quot; /&gt;</span>
+<span class="lineno">3</span> <span class="c1"># or &lt;input /&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              7/32
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Id, class and mimic</h1></header>
             
             
             <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">menu!</span><span class="o">.</span><span class="n">left</span><span class="o">.</span><span class="n">hidden</span> <span class="c1"># =&gt; &lt;div id=&quot;menu&quot; class=&quot;left hidden&quot;&gt;&lt;/div&gt;</span>
@@ -385,7 +393,7 @@ until tag is closed.</p>
 <span class="lineno">3</span> <span class="c1"># =&gt; &lt;div id=&quot;user_1&quot; class=&quot;model user&quot;&gt;data&lt;/div&gt;</span>
 </pre></div>
 
-<p><code>#object</code> which is aliased as <code>#[]</code> looks for <code>.hammer_builder_ref</code> or uses the class name to find the class part.
+<p><code>#mimic</code> which is aliased as <code>#[]</code> looks for <code>.hammer_builder_ref</code> or it uses the class name to render the class part.
 As id is used already determined class and <code>#hammer_builder_ref</code>, <code>#id</code>, <code>#object_id</code> which one is found first.</p></section>
             
           </div>
@@ -402,7 +410,7 @@ As id is used already determined class and <code>#hammer_builder_ref</code>, <co
             </aside>
             
             <aside class="page_number">
-              8/31
+              8/32
             </aside>
           </footer>
         </div>
@@ -431,7 +439,7 @@ As id is used already determined class and <code>#hammer_builder_ref</code>, <co
 </pre></div>
 
 <p>A block in the collection is rendered directly without iterator. This can be useful when menu with some delimiters
-is rendered based on collection of some objects and you need to add one or more menu untypical items.</p></section>
+is rendered based on collection of some objects and you need to add one or more untypical menu items.</p></section>
             
           </div>
           <div class="presenter_notes">
@@ -447,7 +455,7 @@ is rendered based on collection of some objects and you need to add one or more 
             </aside>
             
             <aside class="page_number">
-              9/31
+              9/32
             </aside>
           </footer>
         </div>
@@ -458,19 +466,15 @@ is rendered based on collection of some objects and you need to add one or more 
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h1>Each tag have its own Class</h1></header>
+            <header><h1>Tag's reprezentation</h1></header>
             
             
-            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">rclass</span> <span class="c1"># =&gt; #&lt;Class:0x00000001d449b8(HammerBuilder::Formatted.dc[:Div])&gt;</span>
+            <section><p>Each tag has its own class.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">div</span><span class="o">.</span><span class="n">rclass</span> <span class="c1"># =&gt; #&lt;Class:0x00000001d449b8(HammerBuilder::Formatted.dc[:Div])&gt;</span>
 <span class="lineno">2</span> <span class="n">li</span><span class="o">.</span><span class="n">rclass</span>  <span class="c1"># =&gt; #&lt;Class:0x00000001d449b8(HammerBuilder::Formatted.dc[:Li])&gt;</span>
-<span class="lineno">3</span> <span class="c1"># rclass is original ruby method #class</span>
-<span class="lineno">4</span> 
-<span class="lineno">5</span> <span class="n">div</span><span class="o">.</span><span class="n">id</span> <span class="ss">:id</span>                        <span class="c1"># &lt;div id=&quot;id&quot;&gt;&lt;/div&gt;</span>
-<span class="lineno">6</span> <span class="n">div</span><span class="o">.</span><span class="n">class</span> <span class="o">[</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="s1">&#39;border&#39;</span><span class="o">]</span>      <span class="c1"># &lt;div class=&quot;left border&quot;&gt;&lt;/div&gt;</span>
-<span class="lineno">7</span> <span class="n">meta</span><span class="o">.</span><span class="n">http_equiv</span> <span class="s2">&quot;content-type&quot;</span>    <span class="c1"># &lt;meta http-equiv=&quot;content-type&quot; /&gt;</span>
-<span class="lineno">8</span> <span class="n">a</span><span class="o">.</span><span class="n">onclick</span> <span class="s1">&#39;js&#39;</span>                    <span class="c1"># &lt;a onclick=&quot;js&quot;&gt;&lt;/a&gt;</span>
 </pre></div>
-</section>
+
+<p><code>#rclass</code> is original ruby method <code>#class</code></p></section>
             
           </div>
           <div class="presenter_notes">
@@ -486,7 +490,7 @@ is rendered based on collection of some objects and you need to add one or more 
             </aside>
             
             <aside class="page_number">
-              10/31
+              10/32
             </aside>
           </footer>
         </div>
@@ -513,12 +517,12 @@ is rendered based on collection of some objects and you need to add one or more 
 <span class="lineno">10</span> <span class="k">end</span>
 </pre></div>
 
-<p>It's yours responsibility not to use builder after you have released it.</p>
+<p>Be careful not to use builder after you have released it.</p>
 <div class="highlight"><pre><span class="lineno">1</span> <span class="k">if</span> <span class="n">am_i_freaking_smart?</span>
 <span class="lineno">2</span>   <span class="n">pool</span> <span class="o">=</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Pool</span><span class="o">.</span><span class="n">new</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Formatted</span>
 <span class="lineno">3</span>   <span class="n">xhtml</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">go_in</span><span class="p">(</span><span class="n">your_data</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">data</span><span class="o">|</span>
 <span class="lineno">4</span>     <span class="c1"># render your data ...</span>
-<span class="lineno">5</span>   <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml!</span> <span class="c1"># returns xhtml and releases the builder</span>
+<span class="lineno">5</span>   <span class="k">end</span><span class="o">.</span><span class="n">to_html!</span> <span class="c1"># returns xhtml and releases the builder</span>
 <span class="lineno">6</span> <span class="k">end</span>
 </pre></div>
 
@@ -538,38 +542,7 @@ is rendered based on collection of some objects and you need to add one or more 
             </aside>
             
             <aside class="page_number">
-              11/31
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide">
-          <div class="inner">
-            
-            <header><h1>Contexts TODO</h1></header>
-            
-            
-            <section><p>go_in
-set_variables</p></section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              12/31
+              11/32
             </aside>
           </footer>
         </div>
@@ -580,25 +553,29 @@ set_variables</p></section>
         <div class="slide has_code">
           <div class="inner">
             
-            <header><h1>Helpers</h1></header>
+            <header><h1>How to use</h1></header>
             
             
-            <section><p>If they are needed they can be mixed directly into Builder's instance</p>
-<div class="highlight"><pre><span class="lineno">1</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Formatted</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
-<span class="lineno">2</span>   <span class="kp">extend</span> <span class="no">ActionView</span><span class="o">::</span><span class="no">Helpers</span><span class="o">::</span><span class="no">NumberHelper</span>
-<span class="lineno">3</span>   <span class="n">div</span> <span class="n">number_with_precision</span><span class="p">(</span><span class="no">Math</span><span class="o">::</span><span class="no">PI</span><span class="p">,</span> <span class="ss">:precision</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">)</span>
-<span class="lineno">4</span> <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml</span> <span class="c1"># =&gt; &lt;div&gt;3.1416&lt;/div&gt;</span>
-</pre></div>
-
-<p><em>Be careful when you are using this with <code>Pool</code>. Some instances may have helpers and some don't.</em></p>
-<p>Or new builder descendant can be made.</p>
-<div class="highlight"><pre><span class="lineno">1</span> <span class="k">class</span> <span class="nc">MyBuilder</span> <span class="o">&lt;</span> <span class="no">Hammer</span><span class="o">::</span><span class="no">FormattedBuilder</span>
-<span class="lineno">2</span>   <span class="kp">include</span> <span class="no">ActionView</span><span class="o">::</span><span class="no">Helpers</span><span class="o">::</span><span class="no">NumberHelper</span>
-<span class="lineno">3</span> <span class="k">end</span>
-<span class="lineno">4</span> 
-<span class="lineno">5</span> <span class="no">MyBuilder</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
-<span class="lineno">6</span>   <span class="n">div</span> <span class="n">number_with_precision</span><span class="p">(</span><span class="no">Math</span><span class="o">::</span><span class="no">PI</span><span class="p">,</span> <span class="ss">:precision</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">)</span>
-<span class="lineno">7</span> <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml</span> <span class="c1"># =&gt; &lt;div&gt;3.1416&lt;/div&gt;</span>
+            <section><p>The idea is that any object intended to rendering will have methods which renders the object into builder.
+There is a <code>HammerBuilder::Helper</code> and method <code>#render</code> (also aliased as <code>#r</code>) for that purpose.</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">)</span>
+<span class="lineno"> 2</span>   <span class="kp">extend</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Helper</span>
+<span class="lineno"> 3</span> 
+<span class="lineno"> 4</span>   <span class="n">builder</span> <span class="ss">:detail</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+<span class="lineno"> 5</span>     <span class="n">ul</span> <span class="k">do</span>
+<span class="lineno"> 6</span>       <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:name</span>
+<span class="lineno"> 7</span>       <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:login</span>
+<span class="lineno"> 8</span>       <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:email</span>
+<span class="lineno"> 9</span>     <span class="k">end</span>
+<span class="lineno">10</span>   <span class="k">end</span>
+<span class="lineno">11</span> 
+<span class="lineno">12</span>   <span class="k">def</span> <span class="nf">attribute</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">attribute</span><span class="p">)</span>
+<span class="lineno">13</span>     <span class="n">b</span><span class="o">.</span><span class="n">li</span> <span class="k">do</span>
+<span class="lineno">14</span>       <span class="n">b</span><span class="o">.</span><span class="n">strong</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">: &quot;</span>
+<span class="lineno">15</span>       <span class="n">b</span><span class="o">.</span><span class="n">text</span> <span class="nb">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
+<span class="lineno">16</span>     <span class="k">end</span>
+<span class="lineno">17</span>   <span class="k">end</span>
+<span class="lineno">18</span> <span class="k">end</span>
 </pre></div>
 </section>
             
@@ -616,7 +593,203 @@ set_variables</p></section>
             </aside>
             
             <aside class="page_number">
-              13/31
+              12/32
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>How to use 2</h1></header>
+            
+            
+            <section><p><code>.builder</code> is just shortcut to define method <code>User#detail</code> like this:</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="lineno">2</span>   <span class="n">b</span><span class="o">.</span><span class="n">go_in</span><span class="p">(</span><span class="nb">self</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span> <span class="c1"># this block is the same as the one passed</span>
+<span class="lineno">3</span>     <span class="n">ul</span> <span class="k">do</span>                 <span class="c1"># above to .builder</span>
+<span class="lineno">4</span>       <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:name</span>
+<span class="lineno">5</span>       <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:login</span>
+<span class="lineno">6</span>       <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:email</span>
+<span class="lineno">7</span>     <span class="k">end</span>
+<span class="lineno">8</span>   <span class="k">end</span>
+<span class="lineno">9</span> <span class="k">end</span>
+</pre></div>
+
+<p>is same as</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="n">builder</span> <span class="ss">:detail</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+<span class="lineno">2</span>   <span class="n">ul</span> <span class="k">do</span>
+<span class="lineno">3</span>     <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:name</span>
+<span class="lineno">4</span>     <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:login</span>
+<span class="lineno">5</span>     <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:email</span>
+<span class="lineno">6</span>   <span class="k">end</span>
+<span class="lineno">7</span> <span class="k">end</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              13/32
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>How to use 3</h1></header>
+            
+            
+            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="p">,</span> <span class="s2">&quot;peter&quot;</span><span class="p">,</span> <span class="s2">&quot;peter@example.com&quot;</span><span class="p">)</span>
+<span class="lineno">2</span> <span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">dive</span> <span class="k">do</span>
+<span class="lineno">3</span>   <span class="n">r</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:detail</span>
+<span class="lineno">4</span> <span class="k">end</span><span class="o">.</span><span class="n">to_html!</span>
+</pre></div>
+
+<p>returns:</p>
+<div class="highlight"><pre><span class="lineno"> 1</span> <span class="nt">&lt;ul&gt;</span>
+<span class="lineno"> 2</span>   <span class="nt">&lt;li&gt;</span>
+<span class="lineno"> 3</span>     <span class="nt">&lt;strong&gt;</span>name: <span class="nt">&lt;/strong&gt;</span>Peter
+<span class="lineno"> 4</span>   <span class="nt">&lt;/li&gt;</span>
+<span class="lineno"> 5</span>   <span class="nt">&lt;li&gt;</span>
+<span class="lineno"> 6</span>     <span class="nt">&lt;strong&gt;</span>login: <span class="nt">&lt;/strong&gt;</span>peter
+<span class="lineno"> 7</span>   <span class="nt">&lt;/li&gt;</span>
+<span class="lineno"> 8</span>   <span class="nt">&lt;li&gt;</span>
+<span class="lineno"> 9</span>     <span class="nt">&lt;strong&gt;</span>email: <span class="nt">&lt;/strong&gt;</span>peter@example.com
+<span class="lineno">10</span>   <span class="nt">&lt;/li&gt;</span>
+<span class="lineno">11</span> <span class="nt">&lt;/ul&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              14/32
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Contexts</h1></header>
+            
+            
+            <section><p>Html can be rendered outside of builder's context</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">class</span> <span class="nc">User</span>
+<span class="lineno">2</span>   <span class="n">attr_reder</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span>
+<span class="lineno">3</span>   <span class="k">def</span> <span class="nf">detail</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="c1"># builder</span>
+<span class="lineno">4</span>     <span class="n">b</span><span class="o">.</span><span class="n">ul</span> <span class="p">{</span> <span class="n">b</span><span class="o">.</span><span class="n">li</span> <span class="nb">name</span><span class="p">;</span> <span class="n">b</span><span class="o">.</span><span class="n">li</span> <span class="nb">name</span> <span class="p">}</span>
+<span class="lineno">5</span>   <span class="k">end</span>
+<span class="lineno">6</span> <span class="k">end</span>
+</pre></div>
+
+<p>or <code>#go_in</code> (also aliased as <code>#dive</code>) can be used to get into builder's context</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">class</span> <span class="nc">User</span>
+<span class="lineno">2</span>   <span class="kp">extend</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Helper</span>
+<span class="lineno">3</span>   <span class="n">attr_reder</span> <span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span>
+<span class="lineno">4</span>   <span class="n">builder</span> <span class="ss">:detail</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+<span class="lineno">5</span>     <span class="n">ul</span> <span class="p">{</span> <span class="n">li</span> <span class="n">user</span><span class="o">.</span><span class="n">name</span><span class="p">;</span> <span class="n">li</span> <span class="n">user</span><span class="o">.</span><span class="n">age</span> <span class="p">}</span>
+<span class="lineno">6</span>   <span class="k">end</span>
+<span class="lineno">7</span> <span class="k">end</span>
+<span class="lineno">8</span> <span class="c1"># =&gt; &lt;ul&gt;&lt;li&gt;john Doe&lt;/li&gt;&lt;li&gt;25&lt;/li&gt;&lt;/ul&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              15/32
+            </aside>
+          </footer>
+        </div>
+      </div>
+      
+      <!-- slide source: presentation.md -->
+      <div class="slide-wrapper">
+        <div class="slide has_code">
+          <div class="inner">
+            
+            <header><h1>Helpers</h1></header>
+            
+            
+            <section><p>If they are needed they can be mixed directly into Builder's instance</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Formatted</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
+<span class="lineno">2</span>   <span class="kp">extend</span> <span class="no">ActionView</span><span class="o">::</span><span class="no">Helpers</span><span class="o">::</span><span class="no">NumberHelper</span>
+<span class="lineno">3</span>   <span class="n">div</span> <span class="n">number_with_precision</span><span class="p">(</span><span class="no">Math</span><span class="o">::</span><span class="no">PI</span><span class="p">,</span> <span class="ss">:precision</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="lineno">4</span> <span class="k">end</span><span class="o">.</span><span class="n">to_html</span> <span class="c1"># =&gt; &lt;div&gt;3.1416&lt;/div&gt;</span>
+</pre></div>
+
+<p><em>Be careful when you are using this with <code>Pool</code>. Some instances may have helpers and some don't.</em></p>
+<p>Or new builder descendant can be made.</p>
+<div class="highlight"><pre><span class="lineno">1</span> <span class="k">class</span> <span class="nc">MyBuilder</span> <span class="o">&lt;</span> <span class="no">Hammer</span><span class="o">::</span><span class="no">FormattedBuilder</span>
+<span class="lineno">2</span>   <span class="kp">include</span> <span class="no">ActionView</span><span class="o">::</span><span class="no">Helpers</span><span class="o">::</span><span class="no">NumberHelper</span>
+<span class="lineno">3</span> <span class="k">end</span>
+<span class="lineno">4</span> 
+<span class="lineno">5</span> <span class="no">MyBuilder</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
+<span class="lineno">6</span>   <span class="n">div</span> <span class="n">number_with_precision</span><span class="p">(</span><span class="no">Math</span><span class="o">::</span><span class="no">PI</span><span class="p">,</span> <span class="ss">:precision</span> <span class="o">=&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="lineno">7</span> <span class="k">end</span><span class="o">.</span><span class="n">to_html</span> <span class="c1"># =&gt; &lt;div&gt;3.1416&lt;/div&gt;</span>
+</pre></div>
+</section>
+            
+          </div>
+          <div class="presenter_notes">
+            <header><h1>Presenter Notes</h1></header>
+            <section>
+            
+            </section>
+          </div>
+          <footer>
+            
+            <aside class="source">
+              Source: <a href="presentation.md">presentation.md</a>
+            </aside>
+            
+            <aside class="page_number">
+              16/32
             </aside>
           </footer>
         </div>
@@ -635,7 +808,7 @@ Every tag of the same type share a same instance (unique within the instance of 
 <div class="highlight"><pre><span class="lineno">1</span> <span class="nb">puts</span><span class="p">(</span><span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
 <span class="lineno">2</span>   <span class="nb">puts</span> <span class="n">div</span><span class="o">.</span><span class="n">object_id</span>
 <span class="lineno">3</span>   <span class="nb">puts</span> <span class="n">div</span><span class="o">.</span><span class="n">object_id</span>
-<span class="lineno">4</span> <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml!</span><span class="p">)</span>
+<span class="lineno">4</span> <span class="k">end</span><span class="o">.</span><span class="n">to_html!</span><span class="p">)</span>
 <span class="lineno">5</span> <span class="c1"># =&gt;</span>
 <span class="lineno">6</span> <span class="c1"># 10069200</span>
 <span class="lineno">7</span> <span class="c1"># 10069200</span>
@@ -650,7 +823,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
 <span class="lineno">2</span>   <span class="n">a</span> <span class="o">=</span> <span class="n">div</span> <span class="s1">&#39;a&#39;</span>
 <span class="lineno">3</span>   <span class="n">div</span> <span class="s1">&#39;b&#39;</span>
 <span class="lineno">4</span>   <span class="n">a</span><span class="o">.</span><span class="n">class</span> <span class="s1">&#39;class&#39;</span>
-<span class="lineno">5</span> <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml!</span><span class="p">)</span>
+<span class="lineno">5</span> <span class="k">end</span><span class="o">.</span><span class="n">to_html!</span><span class="p">)</span>
 <span class="lineno">6</span> <span class="c1"># =&gt; &lt;div&gt;a&lt;/div&gt;&lt;div class=&quot;class&quot;&gt;b&lt;/div&gt;</span>
 </pre></div>
 
@@ -670,7 +843,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              14/31
+              17/32
             </aside>
           </footer>
         </div>
@@ -723,7 +896,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              15/31
+              18/32
             </aside>
           </footer>
         </div>
@@ -740,10 +913,10 @@ same class is than much faster and getting builder from a pool is instant.</p>
             <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">Parent</span>
 <span class="lineno"> 2</span>   <span class="kp">extend</span> <span class="no">DynamicClasses</span>
 <span class="lineno"> 3</span>   <span class="n">dynamic_classes</span> <span class="k">do</span>
-<span class="lineno"> 4</span>     <span class="n">define</span> <span class="ss">:LeftEye</span> <span class="k">do</span>
+<span class="lineno"> 4</span>     <span class="n">def_class</span> <span class="ss">:LeftEye</span> <span class="k">do</span>
 <span class="lineno"> 5</span>       <span class="k">def</span> <span class="nf">to_s</span><span class="p">;</span> <span class="s1">&#39;left eye&#39;</span><span class="p">;</span> <span class="k">end</span>
 <span class="lineno"> 6</span>     <span class="k">end</span>
-<span class="lineno"> 7</span>     <span class="n">define</span> <span class="ss">:RightEye</span><span class="p">,</span> <span class="ss">:LeftEye</span> <span class="k">do</span>
+<span class="lineno"> 7</span>     <span class="n">def_class</span> <span class="ss">:RightEye</span><span class="p">,</span> <span class="ss">:LeftEye</span> <span class="k">do</span>
 <span class="lineno"> 8</span>       <span class="nb">class_eval</span> <span class="o">&lt;&lt;-</span><span class="no">RUBYCODE</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span><span class="o">+</span><span class="mi">1</span>
 <span class="lineno"> 9</span> <span class="sh">        def to_s; &#39;next to &#39; + super; end</span>
 <span class="lineno">10</span> <span class="no">      RUBYCODE</span>
@@ -756,7 +929,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
 <span class="lineno">17</span> 
 <span class="lineno">18</span> <span class="k">class</span> <span class="nc">AMutant</span> <span class="o">&lt;</span> <span class="no">Parent</span>
 <span class="lineno">19</span>   <span class="n">dynamic_classes</span> <span class="k">do</span>
-<span class="lineno">20</span>     <span class="kp">extend</span> <span class="ss">:LeftEye</span> <span class="k">do</span>
+<span class="lineno">20</span>     <span class="n">extend_class</span> <span class="ss">:LeftEye</span> <span class="k">do</span>
 <span class="lineno">21</span>       <span class="k">def</span> <span class="nf">to_s</span><span class="p">;</span> <span class="s1">&#39;laser &#39;</span> <span class="o">+</span> <span class="k">super</span><span class="p">;</span> <span class="k">end</span>
 <span class="lineno">22</span>     <span class="k">end</span>
 <span class="lineno">23</span>   <span class="k">end</span>
@@ -778,7 +951,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              16/31
+              19/32
             </aside>
           </footer>
         </div>
@@ -823,7 +996,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              17/31
+              20/32
             </aside>
           </footer>
         </div>
@@ -838,30 +1011,32 @@ same class is than much faster and getting builder from a pool is instant.</p>
             
             
             <section><div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">MyBuilder</span> <span class="o">&lt;</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Formatted</span>
-<span class="lineno"> 2</span> 
-<span class="lineno"> 3</span>   <span class="c1"># define new method to all tags</span>
-<span class="lineno"> 4</span>   <span class="n">extend_class</span> <span class="ss">:AbstractTag</span> <span class="k">do</span>
-<span class="lineno"> 5</span>     <span class="k">def</span> <span class="nf">hide!</span>
-<span class="lineno"> 6</span>       <span class="nb">self</span><span class="o">.</span><span class="n">class</span> <span class="s1">&#39;hidden&#39;</span>
-<span class="lineno"> 7</span>     <span class="k">end</span>
-<span class="lineno"> 8</span>   <span class="k">end</span>
+<span class="lineno"> 2</span>   <span class="n">dynamic_classes</span> <span class="k">do</span>
+<span class="lineno"> 3</span>     <span class="c1"># define new method to all tags</span>
+<span class="lineno"> 4</span>     <span class="n">extend_class</span> <span class="ss">:AbstractTag</span> <span class="k">do</span>
+<span class="lineno"> 5</span>       <span class="k">def</span> <span class="nf">hide!</span>
+<span class="lineno"> 6</span>         <span class="nb">self</span><span class="o">.</span><span class="n">class</span> <span class="s1">&#39;hidden&#39;</span>
+<span class="lineno"> 7</span>       <span class="k">end</span>
+<span class="lineno"> 8</span>     <span class="k">end</span>
 <span class="lineno"> 9</span> 
-<span class="lineno">10</span>   <span class="c1"># add pseudo tag</span>
-<span class="lineno">11</span>   <span class="n">define_class</span> <span class="ss">:Component</span><span class="p">,</span> <span class="ss">:Div</span> <span class="k">do</span>
-<span class="lineno">12</span>     <span class="nb">class_eval</span> <span class="o">&lt;&lt;-</span><span class="no">RUBYCODE</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="lineno">13</span> <span class="sh">      def open(id, attributes = nil, &amp;block)</span>
-<span class="lineno">14</span> <span class="sh">        super(attributes, &amp;nil).id(id).class(&#39;component&#39;)</span>
-<span class="lineno">15</span> <span class="sh">        block ? with(&amp;block) : self</span>
-<span class="lineno">16</span> <span class="sh">      end</span>
-<span class="lineno">17</span> <span class="no">    RUBYCODE</span>
-<span class="lineno">18</span>   <span class="k">end</span>
-<span class="lineno">19</span>   <span class="n">define_tag</span> <span class="ss">:component</span>
+<span class="lineno">10</span>     <span class="c1"># add pseudo tag</span>
+<span class="lineno">11</span>     <span class="n">def_class</span> <span class="ss">:Component</span><span class="p">,</span> <span class="ss">:Div</span> <span class="k">do</span>
+<span class="lineno">12</span>       <span class="nb">class_eval</span> <span class="o">&lt;&lt;-</span><span class="no">RUBYCODE</span><span class="p">,</span> <span class="bp">__FILE__</span><span class="p">,</span> <span class="bp">__LINE__</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="lineno">13</span> <span class="sh">        def open(id, attributes = nil, &amp;block)</span>
+<span class="lineno">14</span> <span class="sh">          super(attributes, &amp;nil).id(id).class(&#39;component&#39;)</span>
+<span class="lineno">15</span> <span class="sh">          block ? with(&amp;block) : self</span>
+<span class="lineno">16</span> <span class="sh">        end</span>
+<span class="lineno">17</span> <span class="no">      RUBYCODE</span>
+<span class="lineno">18</span>     <span class="k">end</span>
+<span class="lineno">19</span>   <span class="k">end</span>
 <span class="lineno">20</span> 
-<span class="lineno">21</span>   <span class="c1"># if the class is not needed same can be done this way</span>
-<span class="lineno">22</span>   <span class="k">def</span> <span class="nf">simple_component</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">attributes</span> <span class="o">=</span> <span class="kp">nil</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
-<span class="lineno">23</span>     <span class="n">div</span><span class="o">[</span><span class="nb">id</span><span class="o">].</span><span class="n">attributes</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span>
-<span class="lineno">24</span>   <span class="k">end</span>
-<span class="lineno">25</span> <span class="k">end</span>
+<span class="lineno">21</span>   <span class="n">define_tag</span> <span class="ss">:component</span>
+<span class="lineno">22</span> 
+<span class="lineno">23</span>   <span class="c1"># if the class is not needed same can be done this way</span>
+<span class="lineno">24</span>   <span class="k">def</span> <span class="nf">simple_component</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="n">attributes</span> <span class="o">=</span> <span class="p">{},</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+<span class="lineno">25</span>     <span class="n">div</span><span class="o">.</span><span class="n">id</span><span class="p">(</span><span class="nb">id</span><span class="p">)</span><span class="o">.</span><span class="n">attributes</span> <span class="n">attributes</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span>
+<span class="lineno">26</span>   <span class="k">end</span>
+<span class="lineno">27</span> <span class="k">end</span>
 </pre></div>
 </section>
             
@@ -879,7 +1054,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              18/31
+              21/32
             </aside>
           </footer>
         </div>
@@ -894,14 +1069,14 @@ same class is than much faster and getting builder from a pool is instant.</p>
             
             
             <section><div class="highlight"><pre><span class="lineno">1</span> <span class="no">MyBuilder</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
-<span class="lineno">2</span>   <span class="n">div</span><span class="o">[</span><span class="ss">:content</span><span class="o">].</span><span class="n">with</span> <span class="k">do</span>
-<span class="lineno">3</span>     <span class="n">span</span><span class="o">[</span><span class="ss">:secret</span><span class="o">].</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hide!</span>
+<span class="lineno">2</span>   <span class="n">div</span><span class="o">.</span><span class="n">content!</span><span class="o">.</span><span class="n">with</span> <span class="k">do</span>
+<span class="lineno">3</span>     <span class="n">span</span><span class="o">.</span><span class="n">secret!</span><span class="o">.</span><span class="n">class</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">hide!</span>
 <span class="lineno">4</span>     <span class="n">component</span><span class="p">(</span><span class="s1">&#39;component-1&#39;</span><span class="p">)</span> <span class="k">do</span>
 <span class="lineno">5</span>       <span class="n">strong</span> <span class="s1">&#39;something&#39;</span>
 <span class="lineno">6</span>     <span class="k">end</span>
 <span class="lineno">7</span>     <span class="n">simple_component</span> <span class="s1">&#39;component-1&#39;</span>
 <span class="lineno">8</span>   <span class="k">end</span>
-<span class="lineno">9</span> <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml!</span>
+<span class="lineno">9</span> <span class="k">end</span><span class="o">.</span><span class="n">to_html!</span>
 </pre></div>
 
 <p>returns</p>
@@ -929,110 +1104,7 @@ same class is than much faster and getting builder from a pool is instant.</p>
             </aside>
             
             <aside class="page_number">
-              19/31
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>How to use</h1></header>
-            
-            
-            <section><p>The idea is that any object intended to rendering will have methods which renders the object into builder.
-There is a <code>HammerBuilder::Helper</code> and method <code>#render</code> for that purpose.</p>
-<div class="highlight"><pre><span class="lineno"> 1</span> <span class="k">class</span> <span class="nc">User</span> <span class="o">&lt;</span> <span class="no">Struct</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:login</span><span class="p">,</span> <span class="ss">:email</span><span class="p">)</span>
-<span class="lineno"> 2</span>   <span class="kp">include</span> <span class="no">HammerBuilder</span><span class="o">::</span><span class="no">Helper</span>
-<span class="lineno"> 3</span> 
-<span class="lineno"> 4</span>   <span class="n">builder</span> <span class="ss">:detail</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
-<span class="lineno"> 5</span>     <span class="n">ul</span> <span class="k">do</span>
-<span class="lineno"> 6</span>       <span class="n">render</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:name</span>
-<span class="lineno"> 7</span>       <span class="n">render</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:login</span>
-<span class="lineno"> 8</span>       <span class="n">render</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:attribute</span><span class="p">,</span> <span class="ss">:email</span>
-<span class="lineno"> 9</span>     <span class="k">end</span>
-<span class="lineno">10</span>   <span class="k">end</span>
-<span class="lineno">11</span> 
-<span class="lineno">12</span>   <span class="n">builder</span> <span class="ss">:attribute</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="p">,</span> <span class="n">attribute</span><span class="o">|</span>
-<span class="lineno">13</span>     <span class="n">li</span> <span class="k">do</span>
-<span class="lineno">14</span>       <span class="n">strong</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">attribute</span><span class="si">}</span><span class="s2">: &quot;</span>
-<span class="lineno">15</span>       <span class="n">text</span> <span class="n">user</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">attribute</span><span class="p">)</span>
-<span class="lineno">16</span>     <span class="k">end</span>
-<span class="lineno">17</span>   <span class="k">end</span>
-<span class="lineno">18</span> <span class="k">end</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              20/31
-            </aside>
-          </footer>
-        </div>
-      </div>
-      
-      <!-- slide source: presentation.md -->
-      <div class="slide-wrapper">
-        <div class="slide has_code">
-          <div class="inner">
-            
-            <header><h1>How to use 2</h1></header>
-            
-            
-            <section><div class="highlight"><pre><span class="lineno">1</span> <span class="n">user</span> <span class="o">=</span> <span class="no">User</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;Peter&quot;</span><span class="p">,</span> <span class="s2">&quot;peter&quot;</span><span class="p">,</span> <span class="s2">&quot;peter@example.com&quot;</span><span class="p">)</span>
-<span class="lineno">2</span> 
-<span class="lineno">3</span> <span class="n">pool</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">go_in</span> <span class="k">do</span>
-<span class="lineno">4</span>   <span class="n">render</span> <span class="n">user</span><span class="p">,</span> <span class="ss">:detail</span>
-<span class="lineno">5</span>   <span class="nb">p</span> <span class="s2">&quot;builder methods are: </span><span class="si">#{</span><span class="no">User</span><span class="o">.</span><span class="n">builder_methods</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="lineno">6</span> <span class="k">end</span><span class="o">.</span><span class="n">to_xhtml!</span>
-</pre></div>
-
-<p>returns:</p>
-<div class="highlight"><pre><span class="lineno"> 1</span> <span class="nt">&lt;ul&gt;</span>
-<span class="lineno"> 2</span>   <span class="nt">&lt;li&gt;</span>
-<span class="lineno"> 3</span>     <span class="nt">&lt;strong&gt;</span>name: <span class="nt">&lt;/strong&gt;</span>Peter
-<span class="lineno"> 4</span>   <span class="nt">&lt;/li&gt;</span>
-<span class="lineno"> 5</span>   <span class="nt">&lt;li&gt;</span>
-<span class="lineno"> 6</span>     <span class="nt">&lt;strong&gt;</span>login: <span class="nt">&lt;/strong&gt;</span>peter
-<span class="lineno"> 7</span>   <span class="nt">&lt;/li&gt;</span>
-<span class="lineno"> 8</span>   <span class="nt">&lt;li&gt;</span>
-<span class="lineno"> 9</span>     <span class="nt">&lt;strong&gt;</span>email: <span class="nt">&lt;/strong&gt;</span>peter@example.com
-<span class="lineno">10</span>   <span class="nt">&lt;/li&gt;</span>
-<span class="lineno">11</span> <span class="nt">&lt;/ul&gt;</span>
-<span class="lineno">12</span> <span class="nt">&lt;p&gt;</span>builder methods are: detail, attribute<span class="nt">&lt;/p&gt;</span>
-</pre></div>
-</section>
-            
-          </div>
-          <div class="presenter_notes">
-            <header><h1>Presenter Notes</h1></header>
-            <section>
-            
-            </section>
-          </div>
-          <footer>
-            
-            <aside class="source">
-              Source: <a href="presentation.md">presentation.md</a>
-            </aside>
-            
-            <aside class="page_number">
-              21/31
+              22/32
             </aside>
           </footer>
         </div>
@@ -1046,7 +1118,9 @@ There is a <code>HammerBuilder::Helper</code> and method <code>#render</code> fo
             <header><h1>Benchmark Synthetic</h1></header>
             
             
-            <section><pre><code>                               user     system      total        real
+            <section><p>Benchmatk can be found on github. It renders simple page with two collections. 'reuse' means that template is precompiled
+and reused during benchmark.</p>
+<pre><code>                               user     system      total        real
 tenjin-reuse               2.040000   0.000000   2.040000 (  2.055140)
 HammerBuilder::Standard    2.520000   0.000000   2.520000 (  2.519284)
 fasterubis-reuse           2.580000   0.000000   2.580000 (  2.581407)
@@ -1074,7 +1148,7 @@ tagz                      33.430000   0.000000  33.430000 ( 33.483693)
             </aside>
             
             <aside class="page_number">
-              22/31
+              23/32
             </aside>
           </footer>
         </div>
@@ -1104,7 +1178,7 @@ tagz                      33.430000   0.000000  33.430000 ( 33.483693)
             </aside>
             
             <aside class="page_number">
-              23/31
+              24/32
             </aside>
           </footer>
         </div>
@@ -1118,7 +1192,9 @@ tagz                      33.430000   0.000000  33.430000 ( 33.483693)
             <header><h1>Benchmark Rails 3</h1></header>
             
             
-            <section><pre><code>BenchTest#test_erubis_partials (3.34 sec warmup)
+            <section><p>Benchmatk can be found on github.
+Single page with or without a partial which is rendered 200 times. Partials make no diffrence for HammerBuilder.</p>
+<pre><code>BenchTest#test_erubis_partials (3.34 sec warmup)
            wall_time: 3.56 sec
              gc_runs: 15
              gc_time: 0.53 ms
@@ -1154,7 +1230,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              24/31
+              25/32
             </aside>
           </footer>
         </div>
@@ -1184,7 +1260,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              25/31
+              26/32
             </aside>
           </footer>
         </div>
@@ -1232,7 +1308,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              26/31
+              27/32
             </aside>
           </footer>
         </div>
@@ -1243,12 +1319,13 @@ BenchTest#test_tenjin_single (531 ms warmup)
         <div class="slide">
           <div class="inner">
             
-            <header><h1>Next?</h1></header>
+            <header><h1>Future plans</h1></header>
             
             
             <section><ul>
 <li>Sinatra</li>
 <li>Rails 3</li>
+<li>Helpers for fragment caching</li>
 </ul></section>
             
           </div>
@@ -1265,7 +1342,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              27/31
+              28/32
             </aside>
           </footer>
         </div>
@@ -1281,9 +1358,8 @@ BenchTest#test_tenjin_single (531 ms warmup)
             
             <section><ul>
 <li>Its fast</li>
-<li>You can use inheritance (imposible with templates)</li>
-<li>You can write in ruby and use all the advatages of the language</li>
-<li>TODO</li>
+<li>You can use inheritance (imposible with templates) and other goodness of Ruby</li>
+<li>You can use pure Ruby to write the html</li>
 </ul></section>
             
           </div>
@@ -1300,7 +1376,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              28/31
+              29/32
             </aside>
           </footer>
         </div>
@@ -1339,7 +1415,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              29/31
+              30/32
             </aside>
           </footer>
         </div>
@@ -1367,7 +1443,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              30/31
+              31/32
             </aside>
           </footer>
         </div>
@@ -1381,9 +1457,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             <header><h1>TODO</h1></header>
             
             
-            <section><ul>
-<li>do some spellcheck :)</li>
-</ul>
+            <section><p>Do some spellcheck. If you allready reading this, I am sorry :)</p>
 <script type="text/javascript">
   var chart, chart2;
   $(document).ready(function() {
@@ -1463,7 +1537,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
             </aside>
             
             <aside class="page_number">
-              31/31
+              32/32
             </aside>
           </footer>
         </div>
@@ -1484,7 +1558,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-2">
-        <th><a href="#slide2">Fast Ruby xhtml5 renderer</a></th>
+        <th><a href="#slide2">Fast Ruby xhtml5, html5 renderer</a></th>
         <td><a href="#slide2">2</a></td>
       </tr>
       
@@ -1508,19 +1582,19 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-6">
-        <th><a href="#slide6">Content</a></th>
+        <th><a href="#slide6">Attributes</a></th>
         <td><a href="#slide6">6</a></td>
       </tr>
       
       
       <tr id="toc-row-7">
-        <th><a href="#slide7">Attributes</a></th>
+        <th><a href="#slide7">Content, Boolean attributes</a></th>
         <td><a href="#slide7">7</a></td>
       </tr>
       
       
       <tr id="toc-row-8">
-        <th><a href="#slide8">Id, class and object</a></th>
+        <th><a href="#slide8">Id, class and mimic</a></th>
         <td><a href="#slide8">8</a></td>
       </tr>
       
@@ -1532,7 +1606,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-10">
-        <th><a href="#slide10">Each tag have its own Class</a></th>
+        <th><a href="#slide10">Tag's reprezentation</a></th>
         <td><a href="#slide10">10</a></td>
       </tr>
       
@@ -1544,67 +1618,67 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-12">
-        <th><a href="#slide12">Contexts TODO</a></th>
+        <th><a href="#slide12">How to use</a></th>
         <td><a href="#slide12">12</a></td>
       </tr>
       
       
       <tr id="toc-row-13">
-        <th><a href="#slide13">Helpers</a></th>
+        <th><a href="#slide13">How to use 2</a></th>
         <td><a href="#slide13">13</a></td>
       </tr>
       
       
       <tr id="toc-row-14">
-        <th><a href="#slide14">Implementation details - Tag's shared instances</a></th>
+        <th><a href="#slide14">How to use 3</a></th>
         <td><a href="#slide14">14</a></td>
       </tr>
       
       
       <tr id="toc-row-15">
-        <th><a href="#slide15">Implementation details - DynamicClasses</a></th>
+        <th><a href="#slide15">Contexts</a></th>
         <td><a href="#slide15">15</a></td>
       </tr>
       
       
       <tr id="toc-row-16">
-        <th><a href="#slide16">Implementation details - DynamicClasses 2</a></th>
+        <th><a href="#slide16">Helpers</a></th>
         <td><a href="#slide16">16</a></td>
       </tr>
       
       
       <tr id="toc-row-17">
-        <th><a href="#slide17">Implementation details - DynamicClasses 3</a></th>
+        <th><a href="#slide17">Implementation details - Tag's shared instances</a></th>
         <td><a href="#slide17">17</a></td>
       </tr>
       
       
       <tr id="toc-row-18">
-        <th><a href="#slide18">Extensibility</a></th>
+        <th><a href="#slide18">Implementation details - DynamicClasses</a></th>
         <td><a href="#slide18">18</a></td>
       </tr>
       
       
       <tr id="toc-row-19">
-        <th><a href="#slide19">Extensibility 2</a></th>
+        <th><a href="#slide19">Implementation details - DynamicClasses 2</a></th>
         <td><a href="#slide19">19</a></td>
       </tr>
       
       
       <tr id="toc-row-20">
-        <th><a href="#slide20">How to use</a></th>
+        <th><a href="#slide20">Implementation details - DynamicClasses 3</a></th>
         <td><a href="#slide20">20</a></td>
       </tr>
       
       
       <tr id="toc-row-21">
-        <th><a href="#slide21">How to use 2</a></th>
+        <th><a href="#slide21">Extensibility</a></th>
         <td><a href="#slide21">21</a></td>
       </tr>
       
       
       <tr id="toc-row-22">
-        <th><a href="#slide22">Benchmark Synthetic</a></th>
+        <th><a href="#slide22">Extensibility 2</a></th>
         <td><a href="#slide22">22</a></td>
       </tr>
       
@@ -1616,7 +1690,7 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-24">
-        <th><a href="#slide24">Benchmark Rails 3</a></th>
+        <th><a href="#slide24">Benchmark Synthetic</a></th>
         <td><a href="#slide24">24</a></td>
       </tr>
       
@@ -1628,38 +1702,44 @@ BenchTest#test_tenjin_single (531 ms warmup)
       
       
       <tr id="toc-row-26">
-        <th><a href="#slide26">Why is it fast?</a></th>
+        <th><a href="#slide26">Benchmark Rails 3</a></th>
         <td><a href="#slide26">26</a></td>
       </tr>
       
       
       <tr id="toc-row-27">
-        <th><a href="#slide27">Next?</a></th>
+        <th><a href="#slide27">Why is it fast?</a></th>
         <td><a href="#slide27">27</a></td>
       </tr>
       
       
       <tr id="toc-row-28">
-        <th><a href="#slide28">Why use?</a></th>
+        <th><a href="#slide28">Future plans</a></th>
         <td><a href="#slide28">28</a></td>
       </tr>
       
       
       <tr id="toc-row-29">
-        <th><a href="#slide29">Links</a></th>
+        <th><a href="#slide29">Why use?</a></th>
         <td><a href="#slide29">29</a></td>
       </tr>
       
       
       <tr id="toc-row-30">
-        <th><a href="#slide30">Thanks for listening / reading.</a></th>
+        <th><a href="#slide30">Links</a></th>
         <td><a href="#slide30">30</a></td>
       </tr>
       
       
       <tr id="toc-row-31">
-        <th><a href="#slide31">TODO</a></th>
+        <th><a href="#slide31">Thanks for listening / reading.</a></th>
         <td><a href="#slide31">31</a></td>
+      </tr>
+      
+      
+      <tr id="toc-row-32">
+        <th><a href="#slide32">TODO</a></th>
+        <td><a href="#slide32">32</a></td>
       </tr>
       
       
